@@ -1,0 +1,119 @@
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="dashboard as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="btn-group">
+                        <button type="button" class="m-silver flat-button__text js-menu-text btn btn-primary dropdown-toggle">
+                            {{ report.defaultYear.Text  }}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="y in  report.years">
+                                <a href="javascript:void('0');" ng-click="yearChange(y)">{{y.Text}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+
+                    <div class="btn-group">
+                        <button type="button" class="m-silver flat-button__text js-menu-text btn btn-primary dropdown-toggle">
+                            {{ report.defaultCategory.Text }}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="c in report.categories">
+                                <a href="javascript:void('0');" ng-click="categoryChange(c)">{{c.Text}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="btn-group">
+                        <button type="button" ng-click="search();" class="btn btn-danger btn-sm">Get Report</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget wviolet">
+                        <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+                            <div data-cc-spinner="vm.spinnerOptions"></div>
+                            <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+                        </div>
+                        <div data-cc-widget-header title="Report"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-info" ng-show="report.showRecord">
+                            <div class="pager-pagination" ng-controller="PagePagination as pp" ng-hide="!pager.showPager">
+                                <div class="clear-div"></div>
+                                <div>
+                                    <select ng-model="pager.pageSize" ng-options="pageNo for pageNo in pager.pageSizeValues"
+                                            ng-change="onSelectPageSize()" class="form-control paging-select"></select>
+
+                                    <pagination total-items="pager.totalItems" page="pager.currentPage" max-size="pager.maxSize" items-per-page="pager.pageSize"
+                                                class="pagination-sm paging-pagination" boundary-links="true" rotate="false" num-pages="pager.numPages"
+                                                on-select-page="onSelectPage(page)"></pagination>
+                                </div>
+                                <div class="clear-div pre-margin"></div>
+
+                                <div ng-init="initPager();">
+                                </div>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Year</th>
+                                        <th>Category</th>
+                                        <th>Variable </th>
+                                        <th>Description </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng:repeat="item in report.variables">
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.Year}}</td>
+                                        <td>{{item.Category}}</td>
+                                        <td>{{item.VariableText}}</td>
+                                        <td>{{item.Description}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pager-pagination" ng-controller="PagePagination as pp" ng-hide="!pager.showPager">
+                                <div class="clear-div"></div>
+                                <div>
+                                    <select ng-model="pager.pageSize" ng-options="pageNo for pageNo in pager.pageSizeValues"
+                                            ng-change="onSelectPageSize()" class="form-control paging-select"></select>
+
+                                    <pagination total-items="pager.totalItems" page="pager.currentPage" max-size="pager.maxSize" items-per-page="pager.pageSize"
+                                                class="pagination-sm paging-pagination" boundary-links="true" rotate="false" num-pages="pager.numPages"
+                                                on-select-page="onSelectPage(page)"></pagination>
+                                </div>
+                                <div class="clear-div pre-margin"></div>
+                                <pre class="pre-pager-text">
+                                <label id="lblPagingInfo"
+                                       ng-cloak class="ng-cloak">Page: {{pager.currentPage}} / {{pager.numPages}} Total Items: {{pager.totalItems}}</label>
+</pre>
+                                <div ng-init="initPager();">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="widget-content text-center text-info" ng-show="report.noRecordShow">
+                            No Record Found
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
