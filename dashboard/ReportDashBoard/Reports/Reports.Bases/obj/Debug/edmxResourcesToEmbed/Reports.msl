@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="a_dictionaryModelStoreContainer" CdmEntityContainer="a_dictionaryEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="a_dictionaryModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="Category1" ColumnName="Category" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="variables">
+      <EntityTypeMapping TypeName="a_dictionaryModel.variable">
+        <MappingFragment StoreEntitySet="variable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="YearId" ColumnName="YearId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Variable1" ColumnName="Variable" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="years">
+      <EntityTypeMapping TypeName="a_dictionaryModel.year">
+        <MappingFragment StoreEntitySet="year">
+          <ScalarProperty Name="Year1" ColumnName="Year" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
