@@ -1,0 +1,73 @@
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="dashboard as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <button type="button" class="m-silver flat-button__text js-menu-text btn btn-primary dropdown-toggle">
+                        {{ selectedYear }}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="y in  report.years">
+                            <a href="#" ng-click="selectYear(y.Value)">{{y.Text}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                   
+                    <div class="btn-group">
+                        <button type="button" class="m-silver flat-button__text js-menu-text btn btn-primary dropdown-toggle">
+                            {{ selectedCategory }}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="c in report.categories">
+                                <a href="#" ng-click="selectCategory(c.Value)">{{c.Text}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default btn-sm">Get Report</button>
+                </div>
+
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-danger btn-sm">Reset</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="Report"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">                              
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Year</th>
+                                        <th>Category</th>
+                                        <th>Variable </th>
+                                        <th>Description </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng:repeat="item in report.variables">
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.YearId}}</td>
+                                        <td>{{item.CategoryId}}</td>
+                                        <td>{{item.VariableText}}</td>
+                                        <td>{{item.Description}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

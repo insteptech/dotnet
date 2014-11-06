@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="a_dictionaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="variable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="float" Nullable="false" />
+    <Property Name="YearId" Type="float" />
+    <Property Name="CategoryId" Type="float" />
+    <Property Name="Variable" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="year">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Year" Type="float" />
+    <Property Name="Id" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_variable_category">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="variable" Type="Self.variable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="variable">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_variable_year">
+    <End Role="year" Type="Self.year" Multiplicity="0..1" />
+    <End Role="variable" Type="Self.variable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="year">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="variable">
+        <PropertyRef Name="YearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_year_year">
+    <End Role="year" Type="Self.year" Multiplicity="1" />
+    <End Role="year1" Type="Self.year" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="year">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="year1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="a_dictionaryModelStoreContainer">
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="variable" EntityType="Self.variable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="year" EntityType="Self.year" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_variable_category" Association="Self.FK_variable_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="variable" EntitySet="variable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_variable_year" Association="Self.FK_variable_year">
+      <End Role="year" EntitySet="year" />
+      <End Role="variable" EntitySet="variable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_year_year" Association="Self.FK_year_year">
+      <End Role="year" EntitySet="year" />
+      <End Role="year1" EntitySet="year" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
