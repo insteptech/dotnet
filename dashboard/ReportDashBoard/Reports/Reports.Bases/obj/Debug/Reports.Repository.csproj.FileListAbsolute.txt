@@ -1,0 +1,10 @@
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\Reports.Bases.dll.config
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\Reports.Bases.dll
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\Reports.Bases.pdb
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\EntityFramework.dll
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\EntityFramework.SqlServer.dll
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\EntityFramework.xml
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\bin\Debug\EntityFramework.SqlServer.xml
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\obj\Debug\Reports.Repository.csprojResolveAssemblyReference.cache
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\obj\Debug\Reports.Bases.dll
+F:\misc\timetracker\trunk\DashboardReporting_Branch\ReportDashBoard\Reports\Reports.Bases\obj\Debug\Reports.Bases.pdb
